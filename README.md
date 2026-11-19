@@ -139,8 +139,7 @@ Contributions welcome. The safety invariants are documented in [CONTRIBUTING.md]
 
 ## References
 
-<!-- BLOG_LINK: replace the line below with the published Maze write-up URL -->
-* Maze write-up: _coming soon_
+* Maze write-up: <https://mazehq.com/blog/nginx-http2-rce>
 * Wiz: <https://www.wiz.io/blog/nginx-http2-rce-vulnerabilities>
 * Rapid7: <https://www.rapid7.com/blog/post/ve-cve-2026-123007-critical-nginx-http-2-integer-underflow-leads-to-rce-fixed/>
 * Xint (nginx2root): <https://xint.io/blog/nginx2root-remote-code-execution>
