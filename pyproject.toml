@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nginx-h2-probe"
+version = "1.0.0"
+description = "Safe remote scanner for CVE-2026-123007, the nginx HTTP/2 flow-control RCE; also assesses CVE-2026-123633 from version/config"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Maze Research" }]
+requires-python = ">=3.8"
+dependencies = []  # deliberately stdlib-only
+keywords = [
+    "nginx", "http2", "http2-rce", "security", "vulnerability-scanner",
+    "cve-2026-123007", "cve-2026-123633", "nginx2root", "rce",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: System Administrators",
+    "Intended Audience :: Information Technology",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Security",
+    "Topic :: Internet :: WWW/HTTP",
+]
+
+[project.urls]
+Homepage = "https://github.com/MazeResearch/nginx-h2-probe"
+Issues = "https://github.com/MazeResearch/nginx-h2-probe/issues"
+
+[project.scripts]
+nginx-h2-probe = "nginx_h2_probe.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

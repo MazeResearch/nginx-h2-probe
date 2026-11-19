@@ -1,0 +1,25 @@
+worker_processes  1;
+error_log  /dev/stderr info;
+
+events { worker_connections 1024; }
+
+http {
+    access_log /dev/stdout;
+
+    server {
+        listen 443 ssl;
+        http2 on;
+        server_name slowproxy-lab.local;
+
+        ssl_certificate     /etc/nginx/certs/cert.pem;
+        ssl_certificate_key /etc/nginx/certs/key.pem;
+
+        # the classic catch-all reverse proxy -- exactly the setup that
+        # matters for CVE-2026-123633, and the false-"patched" reproducer:
+        # the backend answers after SLOW_DELAY seconds, so GET responses
+        # are backend-generated while TRACE is answered by the front nginx.
+        location / {
+            proxy_pass http://SLOW_BACKEND:8080;
+        }
+    }
+}
